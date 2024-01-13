@@ -1,0 +1,118 @@
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared libraries (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+*.elf
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+# Build Files
+*.o.d
+*.swp
+*.swo
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+CPackConfig.cmake
+CPackSourceConfig.cmake
+CMakeDoxyfile.in
+CMakeDoxyfile.out
+
+CMakeUserPresets.json
+
+# QtCreator files
+*.autosave
+
+# Qbs files
+*.qbs.user
+
+# Visual Studio Code files
+.vscode/
+
+# Coverage files
+*.gcno
+*.gcda
+*.gcov
+
+# Cache files
+*.cch
+*.i
+
+# Other files
+*.log
+*.tlog
+*.lo
+*.la
+*.moc
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+
+
+
+
+
+# -----------------------------
+# | Project specific settings
+# ---
+
+build_out.txt
+build_script_4_production.sh
+build/
+_inc/
+_incubation/
+nppBackup/
+license_stuff/
+make_licenses.sh

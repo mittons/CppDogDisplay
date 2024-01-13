@@ -1,0 +1,18 @@
+{% if data %}
+    <md-list id='scrollable-list' style="background-color: white;">
+        {% for dog in data %}
+            <md-elevated-card class="elevated-card-item">
+                <md-item class="card-item">
+                    <div slot="headline" class="card-headline-text">
+                        <strong>{{ dog.name }}</strong>
+                    </div>
+                    <div slot="supporting-text" class="card-supporting-text">
+                        {{ dog.temperament }}
+                    </div>
+                </md-item>
+            </md-elevated-card>
+        {% endfor %}
+    </md-list>
+{% else %}
+    <p>No data available.</p>
+{% endif %}
