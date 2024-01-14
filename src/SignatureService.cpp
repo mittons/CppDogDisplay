@@ -83,6 +83,8 @@ std::string exec(const char* cmd) {
 
 
 // We sign the data, to ensure that clients that properly validate the data only recieve data from us.
+
+// The design decision to use a python script was that it was simply more feasible for me to implement that in code I could write myself and have understanding of all my expressed source code. I know more about securing system calls than securing pointers and memory in C++. And cryptograhpy in C++, even with common third libraries, seems to be more more complex than in other languages.
 std::string signDataWithPython(const std::string& data) {
 
     std::string tempFilePath = saveToTempFile(data);
