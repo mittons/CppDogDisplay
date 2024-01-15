@@ -31,5 +31,8 @@
 
 - **Moved to staging:** Move to staging to guard the master/main branch against commits that haven't passed testing. Apparently github has blocked access to using workflows as a precommit guard for commits for non-enterprise repositories, so this is a viable workaround, at least for a non-collaborative repository.
 
+## [0.1.4] - 2024-01-15
+
+- **Added acknowledgements sections to README.md:** To ensure contributions are acknowledgeded.
 
 *Current version of the ChangeLog is powered by OpenAI, ChatGPT-4*
