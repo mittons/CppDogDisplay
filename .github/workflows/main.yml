@@ -1,0 +1,22 @@
+name: CppDogDisplay Initial CI/CD
+
+on:
+  push:
+    branches:
+      -master
+
+jobs:
+  test-version-refs:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Test for Integrity of Version References
+        uses: python version_ref_consistency_tests.py
