@@ -28,5 +28,6 @@
 ## [0.1.3] - 2024-01-15
 
 - **CI/CD test for Versioning Integrity:"** Added a lightweight CI/CD script that should reject commits that don't demonstrate integrity in how they express the current project version across different files and/or communincation paths ways. Expressing the same information across all fronts is important; it is not only a mark of diligence, but also a valuable indicator towards evaluating honesty.
+ - This script is currently set up to fail and as a result this commit not be added to the main/master branch commit history (as per my research), as no other files referencing the current version have been updated to express version 0.1.3. Integrity is lacking. For testing purposes.
 
 *Current version of the ChangeLog is powered by OpenAI, ChatGPT-4*
