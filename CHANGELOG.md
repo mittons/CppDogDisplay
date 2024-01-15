@@ -21,4 +21,8 @@
 - **Versioning:** This CHANGELOG.md added for documenting version control.
 - **Fix changelog:** Added a few missing items from the v0.1.0 version.
 
+## [0.1.2] - 2024-01-15
+
+- **Maintain Versioning Integrity Across Project:**  Added a Python script that looks for files known to reference current project version and commits to testing them if they do contain that reference. The script then it validates whether all of the files in the project that reference curr_ver reference the same version, returns information on succesful matches and errors. Returns with exit code sys.exit(1) if errors are found.
+
 *Current version of the ChangeLog is powered by OpenAI, ChatGPT-4*
