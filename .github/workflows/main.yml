@@ -1,0 +1,48 @@
+name: CppDogDisplay Initial CI/CD
+
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  test-version-refs:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Test for Integrity of Version References
+        run: python version_ref_consistency_tests.py
+
+      #  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+      # | | Push to Master/Main
+      #  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+            
+      # Bypassing GitHub's lock on non-enterprise repositories ability to guard branches against unclean commit using workflow.
+      # If this is the only way I commit to master/main then it should be fine. Nothing gets through without passing the tests before this section.
+      # This is only a valid strategy on solo, non-collaborative repositories AFAIK.
+      # - As this can possibly lead to complex merges on GitHub Actions in environments with multiple developers.
+      - name: Push to master 
+        # Only pushes to master if the previous steps are successful
+        if: success()
+        run: |
+          # Configure git
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
+          git fetch --all
+          git checkout master
+          
+          # Get the last commit message from the staging branch
+          COMMIT_MESSAGE=$(git log -1 --format=%B origin/staging)
+          
+          git merge origin/staging -X theirs -m "$COMMIT_MESSAGE" --allow-unrelated-histories
+          git push origin master
+        
