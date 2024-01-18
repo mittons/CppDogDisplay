@@ -41,6 +41,7 @@ jobs:
           latest_commit_message=$(git log -1 --pretty=%B)
 
           # Checkout the main branch and perform a squash merge, favoring changes from staging (the branch this workflow is triggered by) in merge conflicts.
+          git fetch --all
           git checkout master
           git merge -X theirs --squash staging
 
