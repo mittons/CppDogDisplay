@@ -37,12 +37,11 @@ jobs:
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@users.noreply.github.com"
 
-          
           # Get the latest commit message associated with this branch (assuming this command will be associate with this branch)
           latest_commit_message=$(git log -1 --pretty=%B)
 
           # Checkout the main branch and perform a squash merge, favoring changes from staging (the branch this workflow is triggered by) in merge conflicts.
-          git checkout main
+          git checkout master
           git merge -X theirs --squash staging
 
           # Add a prefix and use the latest commit message from staging
@@ -51,12 +50,12 @@ jobs:
           # Commit with the new message
           git commit -m "$commit_message"
 
-          # Push to commits to main
-          git push origin main
+          # Push to commits to master
+          git push origin master
 
           # Go back to staging
           git checkout staging
-          # Merge and push, the squashed commit we created in main, into staging history.
-          git merge main
+          # Merge and push, the squashed commit we created in master, into staging history.
+          git merge master
           git push origin staging
         

@@ -35,7 +35,8 @@
 
 - **Added acknowledgements sections to README.md:** To ensure contributions are acknowledgeded.
 
-## [0.1.5] - 2024-01-17
+## [0.1.5] - 2024-01-18
 - **Updated CI/CD script** With changes tested in isolated environment at the GitHub repository [TestMergeBranches](https://github.com/mittons/TestMergeBranches). The additions of, and changes to, the automated scripts that react to git push commands two days ago were a bit chaotic and not tested in an isolated environment, however the current changes should perform better, at the very least get a quick resolution if something goes wrong.
+- **Fixed link error in README:** Removed additional parenthesis from README.md that was preventing correct hyperlink generation.
 
 *Current version of the ChangeLog is powered by OpenAI, ChatGPT-4*
