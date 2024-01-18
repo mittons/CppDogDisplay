@@ -11,7 +11,7 @@ mkdir -p build
 cd build
 
 # Configure the project with CMake, specifying the toolchain file
-cmake .. -DCMAKE_TOOLCHAIN_FILE=./generators/conan_toolchain.cmake
+cmake .. -DCMAKE_TOOLCHAIN_FILE=./generators/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
 
 # Build the project
-cmake --build .
+cmake --build . --config Release 

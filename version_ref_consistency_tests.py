@@ -51,6 +51,8 @@ def extract_version_from_file(file_path, file_type):
                 version_match = re.search(r'__version__ = ["\'](\d+\.\d+\.\d+)["\']', content)
             elif file_type == 'package.json':
                 version_match = re.search(r'"version": ["\'](\d+\.\d+\.\d+)["\']', content)
+            elif file_type == 'conanfile.py':
+                version_match = re.search(r'version = ["\"](\d+\.\d+\.\d+)["\"]', content)
 
             if version_match:
                 return version_match.group(1)
@@ -83,7 +85,8 @@ def main():
         ('README.md', 'README.md'),
         ('version.py', 'version.py'),
         ('CMakeLists.txt', 'CMakeLists.txt'),
-        ('package.json', 'package.json')
+        ('package.json', 'package.json'),
+        ('conanfile.py', 'conanfile.py')
     ]
 
     version_mismatches = []

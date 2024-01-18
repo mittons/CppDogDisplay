@@ -46,7 +46,7 @@ void setupRoutes(crow::SimpleApp& app, IDogBreedService& dogBreedService, inja::
     // | Route that serves the initial site, with a header and a request dog data button
     CROW_ROUTE(app, "/")([&env](const crow::request& req) {
         // Render the route template into a response variable
-        crow::response resp{ env.render_file("../../templates/initial_template.html", nlohmann::json{}) };
+        crow::response resp{ env.render_file("./templates/initial_template.html", nlohmann::json{}) };
 
         // Set CORS headers for response
         setCORSHeaders(resp, req);
@@ -83,7 +83,7 @@ void setupRoutes(crow::SimpleApp& app, IDogBreedService& dogBreedService, inja::
 
 
             // Render the route template into a response variable
-            crow::response resp{ env.render_file("../../templates/breeds_template.html", template_data)};
+            crow::response resp{ env.render_file("./templates/breeds_template.html", template_data)};
 
             // Set CORS headers for response
             setCORSHeaders(resp, req);
@@ -103,7 +103,7 @@ void setupRoutes(crow::SimpleApp& app, IDogBreedService& dogBreedService, inja::
     // ----------------------------------------------------------------------------------
     // | Route that serves the js file needed by the index and renderbreeds routes html
     CROW_ROUTE(app, "/static/js/bundle.js")([&env](const crow::request& req) {
-        std::string filepath = "../../static/js/bundle.js";
+        std::string filepath = "./static/js/bundle.js";
         std::ifstream file(filepath, std::ios::binary);
 
         if (file) {
