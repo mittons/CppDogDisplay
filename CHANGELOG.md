@@ -40,4 +40,14 @@
 - **Updated CI/CD script** With changes tested in isolated environment at the GitHub repository [TestMergeBranches](https://github.com/mittons/TestMergeBranches). The additions of, and changes to, the automated scripts that react to git push commands two days ago were a bit chaotic and not tested in an isolated environment, however the current changes should perform better, at the very least get a quick resolution if something goes wrong.
 - **Fixed link error in README:** Removed additional parenthesis from README.md that was preventing correct hyperlink generation.
 
+## [0.1.6] - 2024-01-19
+- **Opt-out option for tests compilation:** Added an option for code users who want to skip test compilation, they can do so by passing -DBUILD_TESTS=OFF to CMake.
+- **Changed build script to specify Release config during compilation and build steps:** There seemed to be issues with the Debug configuration.
+- **Treeshaking of conanfile:** Removed unused parts from conanfile.py
+- **Build and compilation updates:**    
+	- Resolved issues related to build and compilation
+	- Improved the CMake process to automatically copy directory locations accessed by code via relative paths into each build/compile target directory (src, src/Release, tests, tests/Release).
+  - Updated path references in code files to align with the new file/folder locations, since all necessary resources are now available in each executable's directory.
+- **Updated version integrity check script:** Can now discover conanfile.py and parse the version info, at least for our current set up.
+
 *Current version of the ChangeLog is powered by OpenAI, ChatGPT-4*
