@@ -39,7 +39,7 @@ We use [Semantic Versioning](https://semver.org/) for versioning. For the versio
 
 ### Roadmap
 
-Current Version: v0.1.4
+Current Version: v0.1.5
 
 As the application evolves, the following key developments are planned:
 
@@ -56,7 +56,7 @@ These steps are aimed at enhancing the application's overall quality and efficie
 ## Acknowledgements
 - **The Dog API:** This application uses data from [The Dog API](https://www.thedogapi.com). I route the traffic through my own private backend proxy in order to secure my user key for the API, in line with the [The Dog API TOS](https://thedogapi.com/terms).
 
-- **ChatGPT:** Powered by OpenAI, specifically ChatGPT-4. Files in this project vary from between being Content that is completely AI generated to being completely human-generated. The term Content, and other relevant definitions, can be observed on [The OpenAI TOS page])(https://openai.com/policies/terms-of-use#using-our-services).
+- **ChatGPT:** Powered by OpenAI, specifically ChatGPT-4. Files in this project vary from between being Content that is completely AI generated to being completely human-generated. The term Content, and other relevant definitions, can be observed on [The OpenAI TOS page](https://openai.com/policies/terms-of-use#using-our-services).
 
 ## License
 This project is licensed under the [MIT LICENSE](LICENSE) - see the file for details.
