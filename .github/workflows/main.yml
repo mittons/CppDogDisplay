@@ -43,7 +43,7 @@ jobs:
           # Checkout the main branch and perform a squash merge, favoring changes from staging (the branch this workflow is triggered by) in merge conflicts.
           git fetch --all
           git checkout master
-          git merge -X theirs --squash staging
+          git merge -X theirs --squash staging --allow-unrelated-histories
 
           # Add a prefix and use the latest commit message from staging
           commit_message="MERGE FROM STAGING: $latest_commit_message"
@@ -57,6 +57,6 @@ jobs:
           # Go back to staging
           git checkout staging
           # Merge and push, the squashed commit we created in master, into staging history.
-          git merge master
+          git merge master --allow-unrelated-histories
           git push origin staging
         
