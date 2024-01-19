@@ -40,7 +40,7 @@
 - **Updated CI/CD script** With changes tested in isolated environment at the GitHub repository [TestMergeBranches](https://github.com/mittons/TestMergeBranches). The additions of, and changes to, the automated scripts that react to git push commands two days ago were a bit chaotic and not tested in an isolated environment, however the current changes should perform better, at the very least get a quick resolution if something goes wrong.
 - **Fixed link error in README:** Removed additional parenthesis from README.md that was preventing correct hyperlink generation.
 
-## [0.1.6] - 2024-01-19
+## [0.1.6] - 2024-01-18
 - **Opt-out option for tests compilation:** Added an option for code users who want to skip test compilation, they can do so by passing -DBUILD_TESTS=OFF to CMake.
 - **Changed build script to specify Release config during compilation and build steps:** There seemed to be issues with the Debug configuration.
 - **Treeshaking of conanfile:** Removed unused parts from conanfile.py
@@ -49,5 +49,26 @@
 	- Improved the CMake process to automatically copy directory locations accessed by code via relative paths into each build/compile target directory (src, src/Release, tests, tests/Release).
   - Updated path references in code files to align with the new file/folder locations, since all necessary resources are now available in each executable's directory.
 - **Updated version integrity check script:** Can now discover conanfile.py and parse the version info, at least for our current set up.
+
+## [0.1.7] - 2024-01-19
+
+### Added
+- **Moved closer to linux support:** Added support for using python3 when on other systems than Windows, python on Windows. (In `SignatureService.cpp`)
+
+
+### Fixed
+- **Added missing header:** `SignatureService.cpp` was not including the atomic header, while still referencing it in code.
+- **Removed redundant class refrence:** Removed extra qualification of `SetupServer` class from the `ServerSetup` constructor in `ServerSetup.h`. (A class should not qualify its own member function inside its class definition.)
+- **Updated the project name in the `CMakeLists.txt` file:** The `CMakeLists.txt` file now accurately reflects the name of the published project.
+
+### Changed
+
+- **Changed provided build script to reflect production environment:** Modified the build script to use the production flag when using CMake. Also simplified the script a bit.
+  
+- **Revisited the tests code:**
+  - Added unit test for the output of renderBreeds route on empty response from the mocked service layer.
+  - Fixed bad test code, and then fixed some more test code. 
+  - Removed print statements from test code that cluttered the test output.
+
 
 *Current version of the ChangeLog is powered by OpenAI, ChatGPT-4*

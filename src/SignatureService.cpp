@@ -10,6 +10,7 @@
 #include <random>
 #include <chrono>
 #include <thread>
+#include <atomic>
 
 
 // Ensure we get a unique value each time we call random, even if calls happen at just about the same time.
@@ -88,8 +89,13 @@ std::string exec(const char* cmd) {
 std::string signDataWithPython(const std::string& data) {
 
     std::string tempFilePath = saveToTempFile(data);
+    std::string pythonName = "python3";
+    
+    #ifdef _WIN32
+        pythonName = "python";
+    #endif
 
-    std::string command = "python ./sign.py " + tempFilePath;
+    std::string command = pythonName + " ./sign.py " + tempFilePath;
     std::string signature = exec(command.c_str());
 
     // Delete the temporary file

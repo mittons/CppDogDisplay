@@ -6,12 +6,8 @@
 # Install dependencies with Conan
 conan install . --build=missing
 
-# Create a build directory if it doesn't exist and navigate into it
-mkdir -p build
-cd build
-
 # Configure the project with CMake, specifying the toolchain file
-cmake .. -DCMAKE_TOOLCHAIN_FILE=./generators/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
+cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE=build/generators/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release -DPRODUCTION=ON
 
 # Build the project
-cmake --build . --config Release 
+cmake --build ./build --config Release

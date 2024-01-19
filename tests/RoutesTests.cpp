@@ -13,7 +13,8 @@ protected:
 
 
     void SetUp() override {
-        std::cout << "Setting up DogBreedServiceTests" << std::endl;
+        // Still undecided on if this is too verbose and clutters test output.
+        // std::cout << "Setting up DogBreedServiceTests" << std::endl;
         mockDogBreedService = std::make_unique<MockDogBreedService>();
         serverSetup = new ServerSetup(mockDogBreedService.get());
     }
@@ -42,10 +43,10 @@ TEST_F(RoutesTests, TestIndexRoute) {
         app.handle(req, res);
         
         std::string responseBody = res.body;
-        //Verify our header element is in the html contained in the response body
+        // Verify our header element is in the html contained in the response body
         ASSERT_TRUE(responseBody.find("div class=\"header-bar\"") != std::string::npos);
 
-        //Verify our dog breeds request button is in the html contained in the response body
+        // Verify our dog breeds request button is in the html contained in the response body
         ASSERT_TRUE(responseBody.find("id=\"dog-breed-list-request-button\"") != std::string::npos);
     }
 }
@@ -104,9 +105,10 @@ TEST_F(RoutesTests, TestRenderBreedsRouteFailure) {
         req.url = "/renderBreeds";
         app.handle(req, res);
 
-        std::cout << "Testing invalid route" << std::endl;
+        ASSERT_EQ(res.code, 500);
+        // Test for the exact error message here, but not necessarily in integration/e2e tests to avoid coupling code too much to this implementation.
+        ASSERT_EQ(res.body, "{\"error\":\"Unable to fetch data from the external service\"}");
 
-        std::cout << res.body << std::endl;
     }
 
 }
