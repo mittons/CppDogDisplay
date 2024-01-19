@@ -110,9 +110,12 @@ ui_*.h
 
 build_out.txt
 build_script_4_production.sh
+dev_build_script.sh
 build/
 _inc/
 _incubation/
 nppBackup/
 license_stuff/
 make_licenses.sh
+test_curl.sh
+curl_out.txt
