@@ -70,5 +70,9 @@
   - Fixed bad test code, and then fixed some more test code. 
   - Removed print statements from test code that cluttered the test output.
 
+## [0.1.8] - 2024-01-19
+
+### Fixed
+- **Corrected invalid casing in `cmakelists.txt` files:** Two files in the project were named `CmakeLists.txt`, but correct casing for this filename is `CMakeLists.txt` - *(second letter: m vs M)*.
 
 *Current version of the ChangeLog is powered by OpenAI, ChatGPT-4*
