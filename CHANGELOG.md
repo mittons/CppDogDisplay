@@ -37,7 +37,7 @@
 
 ## [0.1.5] - 2024-01-18
 
-- **Updated CI/CD script** With changes tested in isolated environment at the GitHub repository [TestMergeBranches](https://github.com/mittons/TestMergeBranches). The additions of, and changes to, the automated scripts that react to git push commands two days ago were a bit chaotic and not tested in an isolated environment, however the current changes should perform better, at the very least get a quick resolution if something goes wrong.
+- **Updated CI/CD script:** With changes tested in isolated environment at the GitHub repository [TestMergeBranches](https://github.com/mittons/TestMergeBranches). The additions of, and changes to, the automated scripts that react to git push commands two days ago were a bit chaotic and not tested in an isolated environment, however the current changes should perform better, at the very least get a quick resolution if something goes wrong.
 - **Fixed link error in README:** Removed additional parenthesis from README.md that was preventing correct hyperlink generation.
 
 ## [0.1.6] - 2024-01-18
@@ -84,6 +84,3 @@
 - The changes from [0.1.8] did not seem to connect. So as an alternate attempt we attempt to change the file over two version increments. In this version our `CMakeLists.txt` file have become the magical and adventurous (albeit ineffective purposes related to with CMAke) files: `Starwhisper.txt`.
 
 *Current version of the ChangeLog is powered by OpenAI, ChatGPT-4*
-
-## [0.1.5] - 2024-01-17
-- **Updated CI/CD script** With changes tested in isolated environment at the GitHub repository [TestMergeBranches](https://github.com/mittons/TestMergeBranches). The additions of, and changes to, the automated scripts that react to git push commands two days ago were a bit chaotic and not tested in an isolated environment, however the current changes should perform better, at the very least get a quick resolution if something goes wrong.

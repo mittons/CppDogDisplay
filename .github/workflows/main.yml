@@ -36,7 +36,6 @@ jobs:
           # Configure git
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@users.noreply.github.com"
-     
 
           # Get the latest commit message associated with this branch (assuming this command will be associate with this branch)
           latest_commit_message=$(git log -1 --pretty=%B)
@@ -46,13 +45,11 @@ jobs:
           git checkout master
           git merge -X theirs --squash staging --allow-unrelated-histories
 
-
           # Add a prefix and use the latest commit message from staging
           commit_message="MERGE FROM STAGING: $latest_commit_message"
 
           # Commit with the new message
           git commit -m "$commit_message"
-
 
           # Push to commits to master
           git push origin master
@@ -61,6 +58,5 @@ jobs:
           git checkout staging
           # Merge and push, the squashed commit we created in master, into staging history.
           git merge master --allow-unrelated-histories
-
           git push origin staging
         
