@@ -75,4 +75,12 @@
 ### Fixed
 - **Corrected invalid casing in `cmakelists.txt` files:** Two files in the project were named `CmakeLists.txt`, but correct casing for this filename is `CMakeLists.txt` - *(second letter: m vs M)*.
 
+## [0.1.9] - 2024-01-20
+
+### Changed
+
+### Fixed
+- **Corrected invalid casing in `cmakelists.txt` files:** Two files in the project were named `CmakeLists.txt`, but correct casing for this filename is `CMakeLists.txt` - *(second letter: m vs M)*.
+- The changes from [0.1.8] did not seem to connect. So as an alternate attempt we attempt to change the file over two version increments. In this version our `CMakeLists.txt` file have become the magical and adventurous (albeit ineffective purposes related to with CMAke) files: `Starwhisper.txt`.
+
 *Current version of the ChangeLog is powered by OpenAI, ChatGPT-4*
