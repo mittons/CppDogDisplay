@@ -9,7 +9,7 @@ class ServerSetup {
     IDogBreedService* dogBreedService;
 
 public:
-    explicit ServerSetup::ServerSetup(IDogBreedService* service);
+    explicit ServerSetup(IDogBreedService* service);
 
     crow::SimpleApp app;
 

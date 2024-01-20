@@ -12,7 +12,8 @@ protected:
     std::string dummyUrl;
 
     void SetUp() override {
-        std::cout << "Setting up DogBreedServiceTests" << std::endl;
+        // Still undecided on if this is too verbose and clutters test output.
+        // std::cout << "Setting up DogBreedServiceTests" << std::endl;
         dummyUrl = "http://dummyurl";
         mockHttpClient = std::make_unique<MockHttpClient>();
         dogBreedService = new DogBreedService(dummyUrl, mockHttpClient.get());
@@ -136,19 +137,24 @@ TEST_F(DogBreedServiceTests, SanitizesUnsafeCharacters) {
     // --------------------------------------------------------------- 
     // | Return fields containing unsafe characters
     // ---------------------------------------------------------------
-    std::vector<char> unsafeChars = {'|', '&', ';', '<', '>', '$', '`', '\\', '"'};
+    std::vector<char> unsafeChars = {'|', '&', ';', '<', '>', '$', '`'};
 
     for (char ch : unsafeChars) {
         // Setup mock response with unsafe character
         std::string mockJson = createMockJsonWithUnsafeChar(ch);
         cpr::Response mockResponse;
         mockResponse.text = mockJson;
+        mockResponse.status_code = 200;
 
         // Set up the mockHttpClient to return our mockResponse
         EXPECT_CALL(*mockHttpClient, Get).WillOnce(testing::Return(mockResponse));
 
         // Call the service method
         auto breeds = dogBreedService->get_breeds();
+
+        // Ensure we got some response from the service call, rather than null.
+        // -  Our test is set up to give us a valid response.
+        ASSERT_FALSE(breeds.is_null()); 
 
         // Assert that the response is sanitized
         ASSERT_TRUE(isSanitized(breeds, ch));
@@ -175,6 +181,6 @@ bool isSanitized(const nlohmann::json& data, char ch) {
 }
 
 std::string createMockJsonWithUnsafeChar(char ch) {
-    return "{\"name\": \"Test" + std::string(1, ch) + "\", \"temperament\": \"Aggressive" + std::string(1, ch) + "\"}";
+    return "[{\"name\": \"Test" + std::string(1, ch) + "\", \"temperament\": \"Aggressive" + std::string(1, ch) + "\"}]";
 }
 

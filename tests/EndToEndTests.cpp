@@ -14,7 +14,8 @@ protected:
     std::string dummyUrl;
 
     void SetUp() override {
-        std::cout << "Setting up EndToEndTests" << std::endl;
+        // Still undecided on if this is too verbose and clutters test output.
+        // std::cout << "Setting up EndToEndTests" << std::endl;
         dummyUrl = "http://dummyurl";
         
         mockHttpClient = std::make_unique<MockHttpClient>();
