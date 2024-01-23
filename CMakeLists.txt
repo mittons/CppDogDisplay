@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 cmake_policy(SET CMP0091 NEW)
 cmake_policy(SET CMP0079 NEW)
-project(CppDogDisplay)
+project(DogDisplayForCpp)
 
 option(PRODUCTION "Build for production" OFF)
 
@@ -15,7 +15,7 @@ endif()
 
 set(PROJECT_VERSION_MAJOR 0)
 set(PROJECT_VERSION_MINOR 1)
-set(PROJECT_VERSION_PATCH 10)
+set(PROJECT_VERSION_PATCH 11)
 
 
 set(CMAKE_CXX_STANDARD 17)

@@ -88,5 +88,25 @@
 - **Corrected invalid casing in `cmakelists.txt` files:** Two files in the project were named `CmakeLists.txt`, but correct casing for this filename is `CMakeLists.txt` - *(second letter: m vs M)*.
 - The changes from [0.1.8] did not seem to connect. So as an alternate attempt we attempt to change the file over two version increments. In this version our magical and adventurous `Starwhisper.txt` files have again become `CMakeLists.txt`.
 
+## [0.1.11] - 2024-01-23
+
+### Added
+
+- **Build Script for Power Shell:** Added `build_script.ps1` to the root dir. 
+
+  <details><summary>Does the same thing as `build_script.sh` does at this comment, three commands. Click to EXPAND/COLLAPSE details: </summary>
+
+  - Install dependencies using conan. 
+  - Configure project build system with CMape, 
+  - Compile and build project with CMake. 
+
+  <details>
+- **The bash build_script should now now be executable:** chmod plus x bash_script.sh. For ease of use anyone who might want to use it. Remember, always check what is in the scripts and code that you run from unknown sources, especially if their intent and/or drives are not known or verfied.
+
+- **Added showcase_scripts folder and test_server_endpoints.py:** While this is a massive learning experience for me, it is ultimately intented as a professional showcase of my skill, cabaility of learning, transferable knowledge, This is ultimately a showcase project, so I provide scripts to assist with showcasing the project, until a better method comes along.
+
+- **Changed name of project:** from ~~CppDogDisplay~~ to DogDisplayForCpp. Safer for potential licensing issues. Places the focus on the functionaly developed in this source code. Shows that the project functions in conjuction with the language, while maintaining distinctiveness as an independent project.
+
+- **Prepare for Showcase and Build from Source Instructions:** Added a script or two, that will at least for a while, be a used as part of showcasing and testing the project in the next few updates.
 
 *Current version of the ChangeLog is powered by OpenAI, ChatGPT-4*

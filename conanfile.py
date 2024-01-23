@@ -1,8 +1,8 @@
 from conan import ConanFile
 
-class CppDogDisplayConan(ConanFile):
-    name = "CppDogDisplay"
-    version = "0.1.10"
+class DogDisplayForCppConan(ConanFile):
+    name = "DogDisplayForCpp"
+    version = "0.1.11"
     
     settings = "os", "compiler", "build_type"
     requires = (
