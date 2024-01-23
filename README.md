@@ -1,6 +1,6 @@
-# CppDogDisplay
+# DogDisplayForCpp
 
-### **Welcome to the CppDogDisplay Repository!**
+### **Welcome to the DogDisplayForCpp Repository!**
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -15,7 +15,7 @@
 **Technology: C++, HTML, CSS, Javascript, Python**
 
 **Overview:**
-This project, CppDogDisplay, is a web-based application mainly developed as a C++ web server application. It's part of a series of implementations that showcase the same core functionality across different programming languages and frameworks. The primary objective of this project is to demonstrate my ability to adapt and replicate a consistent user experience and functionality in various technological environments.
+This project, DogDisplayForCpp, is a web-based application mainly developed as a C++ web server application. It's part of a series of implementations that showcase the same core functionality across different programming languages and frameworks. The primary objective of this project is to demonstrate my ability to adapt and replicate a consistent user experience and functionality in various technological environments.
 
 **Functionality:**
 At its heart, the application presents a simple, intuitive interface consisting of a header with a title and a centrally-located button. Upon user interaction with the button, the application initiates a state transition, displaying a loading spinner while processing an HTTP request. The outcomes are twofold:
@@ -35,11 +35,11 @@ This project is part of a larger journey, where I replicate a base application c
 
 
 ## Versioning
-We use [Semantic Versioning](https://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/mittons/CppDogDisplay/tags). 
+We use [Semantic Versioning](https://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/mittons/DogDisplayForCpp/tags). 
 
 ### Roadmap
 
-Current Version: v0.1.10
+Current Version: v0.1.11
 
 As the application evolves, the following key developments are planned:
 

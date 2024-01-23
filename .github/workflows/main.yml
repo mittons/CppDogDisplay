@@ -1,4 +1,4 @@
-name: CppDogDisplay Initial CI/CD
+name: DogDisplayForCpp Initial CI/CD
 
 on:
   push:
