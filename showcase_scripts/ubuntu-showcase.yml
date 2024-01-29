@@ -1,0 +1,109 @@
+name: Build and Showcase for Ubuntu - C++
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build-and-showcase:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Preparing the Project
+      uses: actions/checkout@v4
+      with:
+        repository: 'mittons/DogDisplayForCpp'
+        path: 'DogDisplayForCpp' # Directory to clone the second repo into
+      
+    - name: 1. Preparing the Project - Python Workflow
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: 2. Setup Dependencies - General Dependencies
+      run: |
+        echo "Setting up the Environment"
+
+        sudo apt-get update
+        sudo apt-get install -y cmake
+        pip install conan
+        pip install cryptography
+
+      shell: bash
+
+    - name: 3. Configure Environment
+      run: |
+        echo "Configuring Dependencies"
+
+        conan profile detect
+      shell: bash
+      
+    - name: 4. Building the Application
+      run: |
+        echo "Building the Application"
+
+        # Commands to build files from the secondary repostiory
+        cd DogDisplayForCpp
+
+        chmod +x build_script.sh
+        
+        ./build_script.sh
+      shell: bash
+
+    - name: 5. Server-Side Tests
+      run: |
+        echo "Running Tests"
+
+        # Commands to run the built executable
+        cd DogDisplayForCpp
+        cd ./build/tests
+        ./AllTests
+      shell: bash
+
+    - name: 6. Execute Showcase Run of Server
+      run: |
+        echo "Running the Application"
+
+        pip install requests
+
+        cd DogDisplayForCpp
+        mv ./showcase_scripts/test_server_endpoints.py ./build/src/
+        
+        cd ./build/src
+        ./DogDisplayForCpp > test_run_output.log 2>&1 &
+        sleep 5
+        
+
+        python test_server_endpoints.py
+      shell: bash
+      env:
+        PEM_KEY: ${{ secrets.PEM_KEY }}
+
+    - name: 7. Display Server Logs from Showcase Run
+      run: |
+        echo "##############=="
+        echo "#  SERVER LOG   "
+        echo "######=========="
+        echo " "
+        
+        cd DogDisplayForCpp/build/src
+        
+        cat test_run_output.log
+
+
+    - name: 8. Display Server Response Logs from Showcase Run (Caution - LARGE Log File)
+      run: |
+        echo "#############=="
+        echo "#  RESPONSE    "
+        echo "######========="
+        echo " "
+
+        
+        cd DogDisplayForCpp/build/src
+
+        cat server_response_data_out.txt
+
+      shell: bash

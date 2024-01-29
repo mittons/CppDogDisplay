@@ -2,7 +2,7 @@ import requests
 
 # Function to write a string to a file
 def write_to_file(file_path, content, mode='a'):
-    with open(file_path, mode) as file:
+    with open(file_path, mode, encoding='utf-8') as file:
         file.write(content + '\n')
 
 # URL endpoints

@@ -1,0 +1,108 @@
+name: Build and Showcase for Windows - C++
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build-and-showcase:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Preparing the Project
+      uses: actions/checkout@v4
+      with:
+        repository: 'mittons/DogDisplayForCpp'
+        path: 'DogDisplayForCpp' # Directory to clone the second repo into
+      
+    - name: 1. Preparing the Project - Python Workflow
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: 2. Setup Dependencies
+      run: |
+        Write-Output "Setting up the Environment"
+
+        pip install conan
+        pip install cryptography
+      shell: pwsh
+
+    - name: 3. Configure Environment
+      run: |
+        Write-Output "Configuring Dependencies"
+
+        conan profile detect
+
+        # Set the default profile to use cppstd=17 in the compiler config
+
+        $CONAN_D_PROFILE_PATH = conan profile path default
+
+        Get-Content "$CONAN_D_PROFILE_PATH" | ForEach-Object { $_ -replace 'compiler.cppstd=14', 'compiler.cppstd=17' } | Set-Content temp_c_barbarian_profile
+        Move-Item temp_c_barbarian_profile "$CONAN_D_PROFILE_PATH" -Force
+      shell: pwsh
+      
+    - name: 4. Building the Application
+      run: |
+        echo "Building the Application"
+
+        # Commands to build files from the secondary repository
+        cd DogDisplayForCpp
+        
+        ./build_script.sh
+      shell: bash
+
+    - name: 5. Server-Side Tests
+      run: |
+        Write-Output "Running Tests"
+
+        # Commands to run the built executable
+        cd DogDisplayForCpp
+        cd ./build/tests/Release
+        ./AllTests.exe
+      shell: pwsh
+
+    - name: 6. Execute Showcase Run of Server
+      run: |
+        Write-Output "Running the Application"
+
+        pip install requests
+        
+        cd DogDisplayForCpp
+        Move-Item ./showcase_scripts/test_server_endpoints.py ./build/src/Release
+        
+        cd ./build/src/Release
+        Start-Process -NoNewWindow -FilePath "./DogDisplayForCpp.exe" -RedirectStandardError test_run_output.log
+        Start-Sleep -Seconds 5
+        
+        python test_server_endpoints.py
+      shell: pwsh
+      env:
+        PEM_KEY: ${{ secrets.PEM_KEY }}
+
+    - name: 7. Display Server Logs from Showcase Run
+      run: |
+        Write-Output "##############=="
+        Write-Output "#  SERVER LOG   "
+        Write-Output "######=========="
+        Write-Output " "
+        
+        cd DogDisplayForCpp/build/src/Release
+        
+        Get-Content test_run_output.log
+      shell: pwsh
+
+    - name: 8. Display Server Response Logs from Showcase Run (Caution - LARGE Log File)
+      run: |
+        Write-Output "#############=="
+        Write-Output "#  RESPONSE    "
+        Write-Output "######========="
+        Write-Output " "
+
+        cd DogDisplayForCpp/build/src/Release
+
+        Get-Content server_response_data_out.txt
+      shell: pwsh

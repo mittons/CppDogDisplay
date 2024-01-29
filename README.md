@@ -4,6 +4,8 @@
 
 ## Table of Contents
 - [Introduction](#introduction)
+- [Showcase](#showcase)
+- [Installation](#installation)
 - [Versioning](#versioning)
 - [Roadmap](#roadmap)
 - [License](#license)
@@ -33,19 +35,25 @@ The primary purpose of this project is to:
 **Learning Journey:**
 This project is part of a larger journey, where I replicate a base application concept in various languages, each serving as a testament to my growing skills and understanding of different tech stacks. It's designed not just as a technical demonstration, but also as a narrative of my learning process and commitment to continuous skill enhancement in the realm of software development.
 
+## Showcase
+For a complete guide on setting up and showcasing the application, see [SHOWCASE_BUILD.md](SHOWCASE_BUILD.md).
+
+## Installation
+For detailed instructions on setting up the environment, building, testing and running the application from source, refer to [BUILD.md](BUILD.md).
+
 
 ## Versioning
 We use [Semantic Versioning](https://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/mittons/DogDisplayForCpp/tags). 
 
 ### Roadmap
 
-Current Version: v0.1.11
+Current Version: v0.2.0
 
 As the application evolves, the following key developments are planned:
 
-- [ ] **Installation/Usage/Testing sections for this README.md (Upcoming):** Include sections on setup requirements, usage instructions for running, and testing.
+- [X] **Installation/Usage/Testing sections for this README.md (Complete):** Include sections on setup requirements, usage instructions for running, and testing.
 
-- [ ] **Testing Integration in CI/CD (Future Phase):** Implementation of automated testing on every code push. This will ensure code quality and stability by running a series of tests through a continuous integration/continuous deployment (CI/CD) pipeline.
+- [ ] **Testing Integration in CI/CD (Upcoming):** Implementation of automated testing on every code push. This will ensure code quality and stability by running a series of tests through a continuous integration/continuous deployment (CI/CD) pipeline.
 
 - [ ] **Push to Deploy Enhancement (Future Phase):** Following testing integration, the next step will be to streamline the deployment process. The aim is to achieve a push-to-deploy mechanism in the CI/CD pipeline, allowing for efficient and reliable deployment of updates.
 
