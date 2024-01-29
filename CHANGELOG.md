@@ -109,4 +109,19 @@
 
 - **Prepare for Showcase and Build from Source Instructions:** Added a script or two, that will at least for a while, be a used as part of showcasing and testing the project in the next few updates.
 
+## [0.2.0] - 2024-01-29
+
+### Added
+
+- **Build Instructions:** Detailed instructions on how to set up the application from source added in BUILD.md
+
+- **Showcase Instructions:** Instructions on how to run the application from source and showcase its functionality. Includes a GitHub Actions setup-build-test-run script.
+
+- **Readme Sections for Installation and Showcase:** Added sections to README.md for the added build instructions and the showcase instructions.
+
+### Changed
+
+ - **Showcase_scripts:** - Made a change to the test_server_endpoints.py script, previous version worked on Ubuntu but apparently needed just a little touch, a bit of spice, to work on Windows.
+
+
 *Current version of the ChangeLog is powered by OpenAI, ChatGPT-4*
