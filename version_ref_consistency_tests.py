@@ -27,7 +27,7 @@ def extract_version_from_changelog(changelog_path):
     """ Extracts the latest version number from the CHANGELOG.md file. """
     try:
         latestVersionFound = None
-        with open(changelog_path, 'r') as file:    
+        with open(changelog_path, 'r', encoding='utf-8') as file:    
             for line in file:
                 if line.startswith('## ['):
                     # Extract version number from the line

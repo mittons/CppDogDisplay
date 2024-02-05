@@ -2,7 +2,7 @@ from conan import ConanFile
 
 class DogDisplayForCppConan(ConanFile):
     name = "DogDisplayForCpp"
-    version = "0.2.0"
+    version = "0.2.1"
     
     settings = "os", "compiler", "build_type"
     requires = (
