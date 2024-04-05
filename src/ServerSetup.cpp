@@ -20,8 +20,13 @@ ServerSetup::ServerSetup(IDogBreedService* service) : dogBreedService(service) {
 }
 
 void ServerSetup::run() {
+    #ifdef PRODUCTION
+    app.port(7778).multithreaded().run();
+    #else
     app.port(7777).multithreaded().run();
+    #endif
 }
+
 
 
 void setCORSHeaders(crow::response& res, const crow::request& req) {

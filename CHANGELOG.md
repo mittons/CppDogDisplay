@@ -129,5 +129,13 @@
 
 - **Diversity Among the Current Batch of Apps:** I decided to give the current group of apps some diversity, to separate them and give each of them something unique and wonderful. Currently they all have the title "Dog Diversity Galore! 🐶". I will change the C++ app to "Dog Diversity Extravaganza! 🐶" and the PHP app to "Dog Diversity Abundance! 🐶", while keeping the Python app the same. (Python app is still getting this changelog message!). Diversity is neither a patch nor a feature. It is an inherent part of the world and should be celebrated as such.
 
+## [0.2.2] - 2024-04-05
+
+### Added
+
+- **Changed default port settings to based on PRODUCTION variable at compile time:** 
+ - Now runs on port 7777 by default if PRODUCTION is set to OFF at compile time, and 7778 if PRODUCTION is set to ON at compile time.
+ - Changed the build script in the main project directory to take a -p or a -production flag, which affects the PRODUCTION flag setting it uses (OFF if flag is not provided, ON if flag is provided).
+
 
 *Current version of the ChangeLog is powered by OpenAI, ChatGPT-4*
