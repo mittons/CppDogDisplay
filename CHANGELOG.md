@@ -137,5 +137,12 @@
  - Now runs on port 7777 by default if PRODUCTION is set to OFF at compile time, and 7778 if PRODUCTION is set to ON at compile time.
  - Changed the build script in the main project directory to take a -p or a -production flag, which affects the PRODUCTION flag setting it uses (OFF if flag is not provided, ON if flag is provided).
 
+## [0.2.3] - 2024-04-05
+
+### Fixed
+
+- **Build script fixed:**
+  - Was not making decisions based on the the production flag in build_script.sh, all builds were PRODUCTION=ON.
+
 
 *Current version of the ChangeLog is powered by OpenAI, ChatGPT-4*
