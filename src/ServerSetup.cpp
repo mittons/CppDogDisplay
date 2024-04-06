@@ -8,6 +8,8 @@
 
 #include <regex>
 
+#include <string>
+#include <algorithm>
 
 inja::Environment env;
 
@@ -27,6 +29,18 @@ void ServerSetup::run() {
     #endif
 }
 
+std::string trimLineEndings(const std::string& input) {
+    std::string result = input;
+    // Remove CRLF
+    if (result.length() >= 2 && result.substr(result.length() - 2) == "\r\n") {
+        result.erase(result.length() - 2);
+    }
+    // Remove LF
+    else if (!result.empty() && result.back() == '\n') {
+        result.pop_back();
+    }
+    return result;
+}
 
 
 void setCORSHeaders(crow::response& res, const crow::request& req) {
@@ -62,6 +76,7 @@ void setupRoutes(crow::SimpleApp& app, IDogBreedService& dogBreedService, inja::
         // Sign the response body and set the signature header
         SignatureService sigService;
         std::string signature = sigService.sign_data(resp.body);
+        signature = trimLineEndings(signature);
         resp.set_header("X-Custom-Signature-Header", signature);
 
         return resp;
@@ -96,6 +111,7 @@ void setupRoutes(crow::SimpleApp& app, IDogBreedService& dogBreedService, inja::
             // Sign the response body and set the signature header
             SignatureService sigService;
             std::string signature = sigService.sign_data(resp.body);
+            signature = trimLineEndings(signature);
             resp.set_header("X-Custom-Signature-Header", signature);
 
             return resp;
