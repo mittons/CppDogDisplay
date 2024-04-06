@@ -144,5 +144,19 @@
 - **Build script fixed:**
   - Was not making decisions based on the the production flag in build_script.sh, all builds were PRODUCTION=ON.
 
+## [0.3.0] - 2024-04-06
+
+### Added
+
+- **Wrote dockerfile for project:**
+  - Added a Dockerfile for the project. It's required for the ultimate push-to-deploy CI/CD plan as it seems there aren't many PaaS for hosting c++ project. 
+    - *It's slightly optimized, as it needs to fit below 500mb for the intended hosting service (I hope to dog I'm well informed on that limit). Started out at 900mb bruteforce, but got it down under 100 mb by building separately and then only taking the executable it's dependencies into the final image. Then I realized I made python a requirement and including that in the image pushed it up to 464mb. So we are there*
+      - *Worst comes to worst, still have 2 more options. Can optimize library linking and use smaller base image, but not doing that for now/indefinitely.*
+
+### Fixed
+  - **Sanitized inputs that become header values:**
+    - It turns out LFCRLF is enough for http clients to think the header section is over. And it turns out crow adds a CRLF after every header it streams. So if a header variable ends with LF, it pretty much ends the header section and the rest of the headers just become part of the response body. And different environment handle things differently. The docker setup ended up placing LF at the end of a string where no other setup had done so.
+      - But I fixed it now. So all good.
+      - v0.3.0 because this was the only real implementation stopper for a series of projects reaching their intended purpose. LF. 
 
 *Current version of the ChangeLog is powered by OpenAI, ChatGPT-4*

@@ -47,7 +47,7 @@ We use [Semantic Versioning](https://semver.org/) for versioning. For the versio
 
 ### Roadmap
 
-Current Version: v0.2.3
+Current Version: v0.3.0
 
 As the application evolves, the following key developments are planned:
 
@@ -72,4 +72,4 @@ This project is licensed under the [MIT LICENSE](LICENSE) - see the file for det
 Third party licenses used as dependencies are listed, and given credit, in the [THIRD_PARTY_LICENSES](THIRD_PARTY_LICENSES) file.
 
 ## Contact
-Axel Gauti Guðmundsson - [@axelgauti](https://twitter.com/axelgauti) - axel@axelgauti.is
+Axel Gauti Guðmunds Fanneyjar - [@axelgauti](https://twitter.com/axelgauti) - axel@axelgauti.is
